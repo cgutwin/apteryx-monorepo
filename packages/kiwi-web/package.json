@@ -1,0 +1,9 @@
+{
+  "name": "@kiwi/web",
+  "version": "1.0.0",
+  "description": "The Kiwi web client with React",
+  "author": "Chris Gutwin <24538491+cgutwin@users.noreply.github.com>",
+  "homepage": "",
+  "license": "MIT",
+  "private": true
+}
