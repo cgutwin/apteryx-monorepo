@@ -9,6 +9,7 @@
     "packages/*"
   ],
   "scripts": {
-    "kiwi-web": "yarn workspace @kiwi/web"
+    "kiwi-web": "yarn workspace @kiwi/web",
+    "kiwi-ui": "yarn workspace @kiwi/ui"
   }
 }

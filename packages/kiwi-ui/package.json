@@ -1,0 +1,29 @@
+{
+  "name": "@kiwi/ui",
+  "version": "1.0.0",
+  "description": "UI component library for React instances of Kiwi",
+  "author": "Chris Gutwin <24538491+cgutwin@users.noreply.github.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.esm.js",
+  "scripts": {
+    "bootstrap": "yarn",
+    "build": "rollup -c"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2"
+  },
+  "devDependencies": {
+    "esbuild": "^0.8.17",
+    "rollup": "^2.34.0",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-esbuild": "^2.6.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
