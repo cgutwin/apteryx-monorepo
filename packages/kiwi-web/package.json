@@ -31,6 +31,7 @@
     "react-dom": "^17.0.1"
   },
   "scripts": {
-    "bootstrap": "yarn"
+    "bootstrap": "yarn",
+    "start": "webpack-cli s --hot --config .webpack/webpack.config.js"
   }
 }
