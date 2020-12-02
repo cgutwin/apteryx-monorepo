@@ -1,11 +1,20 @@
-import React from "react"
-import { Heading1 } from "@kiwi/ui"
+import React, { useState } from "react"
+import ViewContext from "./context/ViewContext"
+import ExpiringView from "./views/ExpiringView"
 
 function App() {
+  const [currentView, setCurrentView] = useState(<ExpiringView />)
+
   return (
-    <div>
-      <Heading1>@kiwi/web</Heading1>
-    </div>
+    /* TODO: Provide some sort of history stack */
+    <ViewContext.Provider
+      value={{
+        currentView,
+        setCurrentView
+      }}
+    >
+      {currentView}
+    </ViewContext.Provider>
   )
 }
 
