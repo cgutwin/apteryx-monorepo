@@ -5,8 +5,12 @@
   "author": "Chris Gutwin <24538491+cgutwin@users.noreply.github.com>",
   "homepage": "",
   "license": "MIT",
-  "main": "./dist/index.cjs.js",
-  "module": "./dist/index.esm.js",
+  "module": "./dist/index.js",
+  "files": [
+    "dist",
+    "package.json",
+    "README.md"
+  ],
   "scripts": {
     "bootstrap": "yarn",
     "build": "rollup -c"
@@ -19,11 +23,13 @@
     "rollup": "^2.34.0",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-esbuild": "^2.6.0",
-    "rollup-plugin-peer-deps-external": "^2.2.4"
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "styled-components": "^5.2.1"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "styled-components": "^5.2.1"
   }
 }
