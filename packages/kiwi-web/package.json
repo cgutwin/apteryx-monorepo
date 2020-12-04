@@ -26,6 +26,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@ericblade/quagga2": "^1.2.6",
     "@kiwi/ui": "1.0.0",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",

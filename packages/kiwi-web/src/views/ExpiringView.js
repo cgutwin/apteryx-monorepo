@@ -1,18 +1,18 @@
 import { Header } from "@kiwi/ui"
-import * as PropTypes from "prop-types"
-import React from "react"
+import React, { useContext } from "react"
+import ViewContext from "../context/ViewContext"
+import { ViewContent } from "../templates/View"
+import ScanningView from "./ScanningView"
 
-function ExpiringView({ children }) {
+function ExpiringView() {
+  const viewContext = useContext(ViewContext)
+
   return (
     <div>
-      <Header title={"test"} />
-      expiring view
+      <Header title={"test"} onButtonClick={() => viewContext.setCurrentView(<ScanningView />)} />
+      <ViewContent>test</ViewContent>
     </div>
   )
-}
-
-ExpiringView.propTypes = {
-  children: PropTypes.node.isRequired
 }
 
 export default ExpiringView
