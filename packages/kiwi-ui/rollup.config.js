@@ -1,3 +1,4 @@
+import svgr from "@svgr/rollup";
 import del from "rollup-plugin-delete";
 import esbuild from "rollup-plugin-esbuild";
 import externalPeerDeps from "rollup-plugin-peer-deps-external";
@@ -18,5 +19,6 @@ export default {
     }),
     externalPeerDeps(),
     del({ targets: ["./dist/*"] }),
+    svgr(),
   ],
 };

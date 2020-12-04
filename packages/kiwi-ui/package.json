@@ -19,6 +19,7 @@
     "prop-types": "^15.7.2"
   },
   "devDependencies": {
+    "@svgr/rollup": "^5.5.0",
     "esbuild": "^0.8.17",
     "rollup": "^2.34.0",
     "rollup-plugin-delete": "^2.0.0",

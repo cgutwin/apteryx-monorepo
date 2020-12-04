@@ -6,10 +6,13 @@ export const ButtonReset = styled.button`
 `;
 
 export const NewEntryButton = styled(ButtonReset)`
+  align-items: center;
   background: #31f58d;
   border-radius: 100%;
+  display: flex;
   flex-shrink: 0;
   height: 3rem;
+  padding: 0.5rem;
   width: 3rem;
 `;
 
@@ -17,7 +20,7 @@ export const Header = styled.header`
   background: #0d0d1b;
   border-radius: 0rem 0rem 2rem 2rem;
   color: white;
-  padding: env(safe-area-inset-top, 1rem) 1rem 1rem 1rem;
+  padding: 1rem;
   margin-bottom: 1rem;
 `;
 
