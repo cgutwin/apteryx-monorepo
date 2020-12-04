@@ -6,7 +6,6 @@ function App() {
   const [currentView, setCurrentView] = useState(<ExpiringView />)
 
   return (
-    /* TODO: Provide some sort of history stack */
     <ViewContext.Provider
       value={{
         currentView,

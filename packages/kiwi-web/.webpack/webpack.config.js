@@ -1,7 +1,7 @@
 // development
-const path = require("path")
-const HtmlWebPackPlugin = require("html-webpack-plugin")
-const { ESBuildPlugin } = require("esbuild-loader")
+const path = require('path')
+const HtmlWebPackPlugin = require('html-webpack-plugin')
+const { ESBuildPlugin } = require('esbuild-loader')
 
 module.exports = {
   mode: "development",
@@ -41,7 +41,11 @@ module.exports = {
     port: 3000,
     https: true,
     key: path.resolve(__dirname, "ssl/localhost.key"),
-    cert: path.resolve(__dirname, "ssl/localhost.crt")
+    cert: path.resolve(__dirname, "ssl/localhost.crt"),
+    host: "0.0.0.0",
+    disableHostCheck: true,
+    public: "0.0.0.0:3000",
+    contentBase: path.join(__dirname, "../public")
   },
   plugins: [
     new HtmlWebPackPlugin({

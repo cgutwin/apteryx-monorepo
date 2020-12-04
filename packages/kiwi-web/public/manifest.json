@@ -1,0 +1,10 @@
+{
+  "name": "Kiwi",
+  "short_name": "Kiwi",
+  "orientation": "portrait",
+  "display": "fullscreen",
+  "start_url": ".",
+  "description": "Kiwi, a grocery inventory helper",
+  "theme_color": "#0D0D1B",
+  "background_color": "#ffffff"
+}
