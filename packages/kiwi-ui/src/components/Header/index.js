@@ -3,12 +3,12 @@ import React from "react";
 import AddIcon from "../../assets/icons/plus.svg";
 import * as Styled from "./styles";
 
-export default function Header({ title, children }) {
+export default function Header({ title, onButtonClick, children }) {
   return (
     <Styled.Header>
       <Styled.TitleContent>
         <Styled.ViewTitle>{title}</Styled.ViewTitle>
-        <Styled.NewEntryButton>
+        <Styled.NewEntryButton onClick={onButtonClick}>
           <AddIcon width={"inherit"} height={"inherit"} />
         </Styled.NewEntryButton>
       </Styled.TitleContent>
@@ -19,5 +19,6 @@ export default function Header({ title, children }) {
 
 Header.propTypes = {
   children: PropTypes.node.isRequired,
+  onButtonClick: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
 };
