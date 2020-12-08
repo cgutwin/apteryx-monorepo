@@ -1,7 +1,7 @@
-import PropTypes from "prop-types";
-import React from "react";
-import AddIcon from "../../assets/icons/plus.svg";
-import * as Styled from "./styles";
+import PropTypes from "prop-types"
+import React from "react"
+import AddIcon from "../../assets/icons/plus.svg"
+import * as Styled from "./styles"
 
 export default function Header({ title, onButtonClick, children }) {
   return (
@@ -14,11 +14,11 @@ export default function Header({ title, onButtonClick, children }) {
       </Styled.TitleContent>
       <div>{children}</div>
     </Styled.Header>
-  );
+  )
 }
 
 Header.propTypes = {
   children: PropTypes.node.isRequired,
   onButtonClick: PropTypes.func.isRequired,
-  title: PropTypes.string.isRequired,
-};
+  title: PropTypes.string.isRequired
+}

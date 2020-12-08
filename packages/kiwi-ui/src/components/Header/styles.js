@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const ButtonReset = styled.button`
   background: none;
   border: none;
-`;
+`
 
 export const NewEntryButton = styled(ButtonReset)`
   align-items: center;
@@ -14,7 +14,7 @@ export const NewEntryButton = styled(ButtonReset)`
   height: 3rem;
   padding: 0.5rem;
   width: 3rem;
-`;
+`
 
 export const Header = styled.header`
   background: #0d0d1b;
@@ -22,14 +22,14 @@ export const Header = styled.header`
   color: white;
   padding: 1rem;
   margin-bottom: 1rem;
-`;
+`
 
 export const TitleContent = styled.div`
   display: flex;
   gap: 1rem;
   justify-content: space-between;
-`;
+`
 
 export const ViewTitle = styled.h1`
   margin-top: 0;
-`;
+`
