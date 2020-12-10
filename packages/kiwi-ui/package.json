@@ -13,7 +13,8 @@
   ],
   "scripts": {
     "bootstrap": "yarn",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
   },
   "dependencies": {
     "prop-types": "^15.7.2"

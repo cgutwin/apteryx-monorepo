@@ -1,19 +1,10 @@
 import styled from "styled-components"
+import { IconButton } from "../Buttons/styles"
 
-export const ButtonReset = styled.button`
-  background: none;
-  border: none;
-`
-
-export const NewEntryButton = styled(ButtonReset)`
-  align-items: center;
+export const NewEntryButton = styled(IconButton)`
   background: #31f58d;
   border-radius: 100%;
-  display: flex;
   flex-shrink: 0;
-  height: 3rem;
-  padding: 0.5rem;
-  width: 3rem;
 `
 
 export const Header = styled.header`
