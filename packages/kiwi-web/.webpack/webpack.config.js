@@ -45,7 +45,8 @@ module.exports = {
     host: "0.0.0.0",
     disableHostCheck: true,
     public: "0.0.0.0:3000",
-    contentBase: path.join(__dirname, "../public")
+    contentBase: path.join(__dirname, "../public"),
+    overlay: true
   },
   plugins: [
     new HtmlWebPackPlugin({

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react"
 import Scanner from "../components/Scanner"
 import ViewContext from "../context/ViewContext"
-import ExpiringView from "./ExpiringView"
+import PostScanningView from "./PostScanningView"
 
 function ScanningView() {
   const [results, setResults] = useState({})
@@ -14,10 +14,10 @@ function ScanningView() {
     setResults(result)
   }
 
-  useEffect(;() => {
+  useEffect(() => {
     if (results.codeResult) {
       alert(results.codeResult.code)
-      viewContext.setCurrentView(<ExpiringView />)
+      viewContext.setCurrentView(<PostScanningView productCode={results.codeResult.code} />)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [results])

@@ -37,6 +37,7 @@
   },
   "scripts": {
     "bootstrap": "yarn",
-    "start": "webpack-cli s --hot --config .webpack/webpack.config.js"
+    "start": "webpack-cli s --hot --config .webpack/webpack.config.js",
+    "build": "webpack --mode=production"
   }
 }

@@ -4,4 +4,4 @@
 !.yarn/plugins
 .pnp.*
 **/ssl/*
-packages/kiwi-ui/dist/*
+/packages/**/dist/
