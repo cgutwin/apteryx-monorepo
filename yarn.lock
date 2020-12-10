@@ -1465,6 +1465,7 @@ __metadata:
     react-is: ^17.0.1
     style-loader: ^2.0.0
     styled-components: ^5.2.1
+    typography: ^0.16.19
     webpack: ^5.9.0
     webpack-cli: ^4.2.0
     webpack-dev-server: ^3.11.0
@@ -4707,6 +4708,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"compass-vertical-rhythm@npm:^1.4.5":
+  version: 1.4.5
+  resolution: "compass-vertical-rhythm@npm:1.4.5"
+  dependencies:
+    convert-css-length: ^1.0.1
+    object-assign: ^4.1.0
+    parse-unit: ^1.0.1
+  checksum: 2339532a832e749d47a7bcc6ba26f49fbc32777cfac227f00ad494795020b271c7bed4b0e5dad33425208893cb29a88e8708433c9a870ae3c4b33d41de1a0d9b
+  languageName: node
+  linkType: hard
+
 "component-emitter@npm:^1.2.1":
   version: 1.3.0
   resolution: "component-emitter@npm:1.3.0"
@@ -4804,6 +4816,13 @@ __metadata:
   version: 1.1.0
   resolution: "console-control-strings@npm:1.1.0"
   checksum: 58a404d951bf270494fb91e136cf064652c1208ccedac23e4da24e6a3a3933998f302cadc45cbf6582a007a4aa44dab944e84056b24e3b1964e9a28aeedf76c9
+  languageName: node
+  linkType: hard
+
+"console-polyfill@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "console-polyfill@npm:0.1.2"
+  checksum: edc5d901b4113e5c62aca45ee3766d264d51b68c766093e15258c9f07696f192c4425bcc25688a21b971b5418209f4cd8cad45efa637f5633eae3c8c37b10ccf
   languageName: node
   linkType: hard
 
@@ -4930,6 +4949,16 @@ __metadata:
   bin:
     conventional-recommended-bump: cli.js
   checksum: de0b3981511c1f5f5fe9f7dadfa7de503312db0b1ffea54bb41db9c04b37da8a361e198cc329c93ca941847da51583ec987af1ac7ebd02157d40b1d196a17e23
+  languageName: node
+  linkType: hard
+
+"convert-css-length@npm:^1.0.1":
+  version: 1.0.2
+  resolution: "convert-css-length@npm:1.0.2"
+  dependencies:
+    console-polyfill: ^0.1.2
+    parse-unit: ^1.0.1
+  checksum: 1b812aec3f978b2d8e0445495582b371db06e331bca0da561036fb618fc76f0a184c4f1200667836a665547b97151ff977615e5c369298b19e8e9746fa03b38e
   languageName: node
   linkType: hard
 
@@ -7409,6 +7438,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"gray-percentage@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "gray-percentage@npm:2.0.0"
+  checksum: 27a998d638a81e66ed4c197fa8a98bda299f9b76a7c58970d5cff13ab2f5426741eb69bc14f2de7b5b250b4d8171394ec5f51cd9340a175a9653bac78d33e197
+  languageName: node
+  linkType: hard
+
 "gunzip-maybe@npm:^1.4.2":
   version: 1.4.2
   resolution: "gunzip-maybe@npm:1.4.2"
@@ -9166,6 +9202,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"lodash.isnumber@npm:^3.0.0":
+  version: 3.0.3
+  resolution: "lodash.isnumber@npm:3.0.3"
+  checksum: a33b10bf57dd27b32aac0bb4159d3f40db6b294095f42d7ff9f966a004932cdcc12417bf0750a9d3ac0c62690dd020d7d227b05ef486a8c9061963acf2ea3fad
+  languageName: node
+  linkType: hard
+
 "lodash.merge@npm:^4.6.2":
   version: 4.6.2
   resolution: "lodash.merge@npm:4.6.2"
@@ -9220,7 +9263,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.11, lodash@npm:^4.17.12, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.2.1":
+"lodash@npm:^4.13.1, lodash@npm:^4.17.11, lodash@npm:^4.17.12, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.2.1":
   version: 4.17.20
   resolution: "lodash@npm:4.17.20"
   checksum: c62101d2500c383b5f174a7e9e6fe8098149ddd6e9ccfa85f36d4789446195f5c4afd3cfba433026bcaf3da271256566b04a2bf2618e5a39f6e67f8c12030cb6
@@ -9760,6 +9803,15 @@ fsevents@~2.1.2:
   version: 1.0.1
   resolution: "modify-values@npm:1.0.1"
   checksum: 55165ae8b4ea2aafebe5027dd427d4a833d54606c81546f4d3c04943d99d194ac9481fa076719f326d243c475e2dfa5cf0219e68cffbbf9c44b24e46eb889779
+  languageName: node
+  linkType: hard
+
+"modularscale@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "modularscale@npm:1.0.2"
+  dependencies:
+    lodash.isnumber: ^3.0.0
+  checksum: a69b23b34c47984fe2b01028129bca7c791bfe400c0618f07065fca6b94c95c7033deec3b55c21adffe05cb3e61da933c68b13f0f0617d85aced6fabd050d24e
   languageName: node
   linkType: hard
 
@@ -10855,6 +10907,13 @@ fsevents@~2.1.2:
     is-ssh: ^1.3.0
     protocols: ^1.4.0
   checksum: b1c8d4752f7b0bf731eb35fd34f724da066f448a9d5ed00b6b63b6e42859a71dc262713f4dca8df4489a03435358e28a082a26dd6397b48e5a683c91dbbae7dd
+  languageName: node
+  linkType: hard
+
+"parse-unit@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "parse-unit@npm:1.0.1"
+  checksum: f756ecf06fa1a592173aee3f970b32c508c97c6d922b8c92ce837d99fabc038a72625baab1973cf3f68731edae6c3508702183884a6e87ee24befaea453ee98d
   languageName: node
   linkType: hard
 
@@ -14207,6 +14266,28 @@ fsevents@~2.1.2:
   version: 5.2.0
   resolution: "typical@npm:5.2.0"
   checksum: f4af3049786332f535a02344283d8388d18d8335eb7232c99b73a49f4b240798aecc2e6ae30b108f01a82f37e98a17b84e4d9be6724244e1688442dfc2e87bac
+  languageName: node
+  linkType: hard
+
+"typography-normalize@npm:^0.16.19":
+  version: 0.16.19
+  resolution: "typography-normalize@npm:0.16.19"
+  checksum: 788fbf61be06c5b196eb32b334d3e1757e783b5f3ff63be9e8f07a612e328db348cb65ea58735526b08542704ac2c34eb401d981a1ceb3dbbaf83f5ced55cd2f
+  languageName: node
+  linkType: hard
+
+"typography@npm:^0.16.19":
+  version: 0.16.19
+  resolution: "typography@npm:0.16.19"
+  dependencies:
+    compass-vertical-rhythm: ^1.4.5
+    decamelize: ^1.2.0
+    gray-percentage: ^2.0.0
+    lodash: ^4.13.1
+    modularscale: ^1.0.2
+    object-assign: ^4.1.0
+    typography-normalize: ^0.16.19
+  checksum: 665f41ba306e7656d5996deaddbec491a72e85bbdc7c9887a68e9f4d13ad531d34f0d8ad8e09d8abb091f9aa7770a3c9435ae5aa3f05b6ffaed5801b5ba940f9
   languageName: node
   linkType: hard
 

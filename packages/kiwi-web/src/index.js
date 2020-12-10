@@ -3,6 +3,7 @@ import React from "react"
 import { render } from "react-dom"
 import App from "./App"
 import "./styles/global.css"
+import typography from "./styles/typography"
 
 render(
   <React.StrictMode>
@@ -10,3 +11,5 @@ render(
   </React.StrictMode>,
   document.getElementById("root")
 )
+
+typography.injectStyles()
