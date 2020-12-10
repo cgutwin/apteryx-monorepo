@@ -3,10 +3,10 @@ import React from "react"
 
 export default function CreateExpiryView({ productCode }) {
   return (
-    <div>
+    <>
       <h2>Create Expiry</h2>
       <p>{productCode}</p>
-    </div>
+    </>
   )
 }
 

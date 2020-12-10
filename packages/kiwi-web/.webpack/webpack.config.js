@@ -4,12 +4,12 @@ const HtmlWebPackPlugin = require('html-webpack-plugin')
 const { ESBuildPlugin } = require('esbuild-loader')
 
 module.exports = {
-  mode: "development",
-  entry: "./src/index.js",
+  mode: 'development',
+  entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, "../dist"),
-    filename: "[name].[contenthash].bundle.js",
-    publicPath: "/"
+    path: path.resolve(__dirname, '../dist'),
+    filename: '[name].[contenthash].bundle.js',
+    publicPath: '/'
   },
   module: {
     rules: [

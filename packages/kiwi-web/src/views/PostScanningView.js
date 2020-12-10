@@ -1,6 +1,9 @@
+import { BackButton } from "@kiwi/ui"
 import * as PropTypes from "prop-types"
 import React, { useContext, useEffect, useState } from "react"
+import styled from "styled-components"
 import ViewContext from "../context/ViewContext"
+import { ViewContent } from "../templates/View"
 import CreateExpiryView from "./CreateExpiryView"
 import CreateProductView from "./CreateProductView"
 import ExpiringView from "./ExpiringView"
@@ -8,7 +11,8 @@ import ExpiringView from "./ExpiringView"
 function PostScanningView({ productCode }) {
   const [formStack, setFormStack] = useState([
     {
-      name: "createExpiryView",
+      id: "createExpiryView",
+      title: productCode,
       component: <CreateExpiryView productCode={productCode} />
     }
   ])
@@ -31,7 +35,8 @@ function PostScanningView({ productCode }) {
     if (productCode !== "072067397010") {
       setFormStack([
         {
-          name: "createProductView",
+          id: "createProductView",
+          title: "Create Product",
           component: <CreateProductView productCode={productCode} onCreateProduct={createProductHandler} />
         },
         ...formStack
@@ -41,13 +46,28 @@ function PostScanningView({ productCode }) {
 
   return (
     <>
-      <header>
-        <button onClick={backActionHandler}>back</button>
-      </header>
-      <div>{formStack[currentForm].component}</div>
+      <Header>
+        <BackButton onClick={backActionHandler} />
+        <div
+          style={{
+            textAlign: "center"
+          }}
+        >
+          <h2>{formStack[currentForm].title}</h2>
+        </div>
+      </Header>
+      <ViewContent>{formStack[currentForm].component}</ViewContent>
     </>
   )
 }
+
+export const Header = styled.header`
+  padding: 0.5rem 1rem;
+  background-color: #f7f8fd;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  align-items: center;
+`
 
 PostScanningView.propTypes = {
   productCode: PropTypes.string.isRequired
