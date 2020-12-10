@@ -21,8 +21,8 @@
   },
   "devDependencies": {
     "@svgr/rollup": "^5.5.0",
-    "esbuild": "^0.8.17",
-    "rollup": "^2.34.0",
+    "esbuild": "^0.8.21",
+    "rollup": "^2.34.2",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-esbuild": "^2.6.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
