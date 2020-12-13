@@ -5,3 +5,4 @@
 .pnp.*
 **/ssl/*
 /packages/**/dist/
+/packages/**/node_modules/
