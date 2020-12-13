@@ -7,9 +7,8 @@ export default {
 
 const PrimaryTemplate = (args) => {
   const [selectedSegment, setSelectedSegment] = useState(0)
-  const segmentChangeHandler = (segment) => {
-    setSelectedSegment(segment)
-  }
+  const segmentChangeHandler = (segment) => setSelectedSegment(segment)
+
   return <SegmentedControls selected={selectedSegment} onSegmentChange={segmentChangeHandler} {...args} />
 }
 

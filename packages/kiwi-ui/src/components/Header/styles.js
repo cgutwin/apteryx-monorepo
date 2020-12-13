@@ -8,11 +8,11 @@ export const NewEntryButton = styled(IconButton)`
 `
 
 export const Header = styled.header`
-  background: #0d0d1b;
-  border-radius: 0rem 0rem 2rem 2rem;
-  color: white;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  background: #e8eaed;
+  border-radius: 0rem 0rem 1rem 1rem;
+  color: #0d0d1b;
+  padding: 2rem 2rem 1rem 2rem;
+  margin-bottom: 0.5rem;
 `
 
 export const TitleContent = styled.div`

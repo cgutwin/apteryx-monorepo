@@ -28,6 +28,7 @@
     "@svgr/webpack": "^5.5.0",
     "babel-loader": "^8.2.2",
     "esbuild": "^0.8.21",
+    "framer-motion": "^2.9.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-is": "^17.0.1",
@@ -38,6 +39,7 @@
     "styled-components": "^5.2.1"
   },
   "peerDependencies": {
+    "framer-motion": "^2.9.5",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
