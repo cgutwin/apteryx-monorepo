@@ -6,7 +6,7 @@ import { IconButton } from "./styles"
 export default function BackButton({ onClick, ...props }) {
   return (
     <IconButton onClick={onClick} {...props}>
-      <BackIcon width={"inherit"} height={"inherit"} />
+      <BackIcon width={"2rem"} height={"2rem"} />
     </IconButton>
   )
 }
