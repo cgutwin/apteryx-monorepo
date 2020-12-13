@@ -1,10 +1,10 @@
 body {
   /* This is unfortunately needed to set the header colour on IOS. */
-  background: #0D0D1B;
+  background: #E8EAED;
 }
 
 #root {
   /* Reset the change to force header colour for the rest of the body. */
-  background: white;
+  background: #F3F4F6;
   min-height: 100vh;
 }

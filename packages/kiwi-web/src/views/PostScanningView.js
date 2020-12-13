@@ -53,7 +53,7 @@ function PostScanningView({ productCode }) {
             textAlign: "center"
           }}
         >
-          <h2>{formStack[currentForm].title}</h2>
+          <h4>{formStack[currentForm].title}</h4>
         </div>
       </Header>
       <ViewContent>{formStack[currentForm].component}</ViewContent>
@@ -63,7 +63,8 @@ function PostScanningView({ productCode }) {
 
 export const Header = styled.header`
   padding: 0.5rem 1rem;
-  background-color: #f7f8fd;
+  background-color: #dcdfe5;
+  color: #0d0d1b;
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   align-items: center;
