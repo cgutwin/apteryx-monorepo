@@ -29,7 +29,7 @@ export default new Typography({
     h6: {
       ...scale(0 / 5),
       margin: rhythm(1 / 5),
-      fontWeight: 500
+      fontWeight: 700
     },
     p: {
       ...scale(0 / 5),

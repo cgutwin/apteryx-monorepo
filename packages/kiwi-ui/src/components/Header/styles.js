@@ -19,8 +19,9 @@ export const TitleContent = styled.div`
   display: flex;
   gap: 1rem;
   justify-content: space-between;
+  align-items: center;
 `
 
 export const ViewTitle = styled.h1`
-  margin-top: 0;
+  margin: 0;
 `
