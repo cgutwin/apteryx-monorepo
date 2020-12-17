@@ -1,5 +1,6 @@
 export * from "./components/Buttons"
 export * from "./components/Forms"
+export * from "./components/Inputs"
 export * from "./components/LinearCalendar"
 export { default as Header } from "./components/Header"
 export { default as SegmentedControls } from "./components/SegmentedControls"
