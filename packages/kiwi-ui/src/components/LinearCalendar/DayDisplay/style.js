@@ -1,13 +1,13 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 export const Display = styled.li`
+  align-items: center;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  max-width: max-content;
-  cursor: pointer;
   list-style: none;
+  max-width: max-content;
 `
 
 export const Day = styled.h6`
@@ -19,21 +19,19 @@ export const Date = styled.p`
   background: transparent;
   border-radius: 100%;
   border: 2px solid transparent;
-  max-height: 1rem;
+  display: inline-flex;
+  font-weight: 600;
+  justify-content: center;
   margin: 0;
+  max-height: 1rem;
   padding: 1.25rem;
   width: 1rem;
-  display: inline-flex;
-  justify-content: center;
-  font-weight: 600;
-`
 
-export const SelectedDate = styled(Date)`
-  background: none;
-  border: 2px solid #31f58d;
-  color: #0d0d1b;
-`
-
-export const SelectedDay = styled(Day)`
-  color: #31f58d;
+  ${(props) =>
+    props.selected &&
+    css`
+      background: none;
+      border: 2px solid #31f58d;
+      color: #0d0d1b;
+    `}
 `
