@@ -9,6 +9,7 @@ export const ControlsBase = styled(motion.ul)`
   display: flex;
   align-content: center;
   list-style: none;
+  font-family: sans-serif;
 `
 
 export const SegmentDisplay = styled(motion.li)`
