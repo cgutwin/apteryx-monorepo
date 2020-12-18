@@ -1,25 +1,50 @@
-import { BackButton } from "@kiwi/ui"
+import { BackButton, FormProgressBar } from "@kiwi/ui"
 import * as PropTypes from "prop-types"
 import React, { useContext, useEffect, useState } from "react"
 import styled from "styled-components"
+import MultipartFormContext from "../context/MultipartFormContext"
 import ViewContext from "../context/ViewContext"
+import AddExpiry from "../forms/AddExpiry"
+import AddProductData from "../forms/AddProductData"
 import { ViewContent } from "../templates/View"
-import CreateExpiryView from "./CreateExpiryView"
-import CreateProductView from "./CreateProductView"
 import ExpiringView from "./ExpiringView"
 
+// The multipart form switcher.
 function PostScanningView({ productCode }) {
+  // Default view you will always get is the create expiry form. If the product doesn't exist then it will append
+  const [currentForm, setCurrentForm] = useState(0)
+  const [fullFormData, setFullFormData] = useState({})
+  // the add product form.
   const [formStack, setFormStack] = useState([
     {
-      id: "createExpiryView",
-      title: productCode,
-      component: <CreateExpiryView productCode={productCode} />
+      formId: "expiryData",
+      title: "Create the Expiry",
+      subscript: productCode,
+      component: AddExpiry
     }
   ])
-  const [currentForm, setCurrentForm] = useState(0)
   const viewContext = useContext(ViewContext)
 
-  const createProductHandler = () => setCurrentForm(currentForm + 1)
+  // On mount, query the database, if the product exists. If it does, we just need to create new expiry information.
+  // If not, we also need to add an entry for the product itself in the db.
+  useEffect(() => {
+    if (productCode !== "06580013009") {
+      // Prepend the AddProductData form if the entry doesn't exist.
+      setFormStack([
+        {
+          formId: "productData",
+          title: "Add the Product Data",
+          subscript: productCode,
+          component: AddProductData
+        },
+        ...formStack
+      ])
+    }
+  }, [])
+
+  // Used to pass the form progress to the progress bar.
+  const formProgress = (currentForm + 1) / formStack.length
+  const Form = formStack[currentForm].component
 
   // We need a special handler for navigating back in these views, as if you are adding an expiry after a product,
   // you don't want to go back to the main expiry view.
@@ -29,45 +54,79 @@ function PostScanningView({ productCode }) {
     } else viewContext.setCurrentView(<ExpiringView />)
   }
 
-  // On mount, query the database, if the product exists. If it does, we just need to create new expiry information.
-  // If not, we also need to add an entry for the product itself in the db.
-  useEffect(() => {
-    if (productCode !== "072067397010") {
-      setFormStack([
-        {
-          id: "createProductView",
-          title: "Create Product",
-          component: <CreateProductView productCode={productCode} onCreateProduct={createProductHandler} />
-        },
-        ...formStack
-      ])
-    }
-  }, [])
-
   return (
     <>
       <Header>
-        <BackButton onClick={backActionHandler} />
-        <div
-          style={{
-            textAlign: "center"
-          }}
-        >
-          <h4>{formStack[currentForm].title}</h4>
+        <HeaderTop>
+          <BackButton
+            onClick={backActionHandler}
+            style={{
+              background: "#E8EAED",
+              borderRadius: "2rem",
+              padding: "0.75rem"
+            }}
+          />
+          <FormProgressBar progress={formProgress} />
+        </HeaderTop>
+        <div>
+          <h2>{formStack[currentForm].title}</h2>
+          <p>{formStack[currentForm].subscript}</p>
         </div>
       </Header>
-      <ViewContent>{formStack[currentForm].component}</ViewContent>
+      <ViewContent>
+        {JSON.stringify(fullFormData)}
+        <MultipartFormContext.Provider
+          value={{
+            formData: {
+              data: fullFormData,
+              update: function (dataPart) {
+                setFullFormData({ ...this.data, ...dataPart })
+              }
+            },
+            formControls: {
+              current: {
+                value: currentForm,
+                id: formStack[currentForm].formId
+              },
+              next: function () {
+                setCurrentForm(this.current.value + 1)
+              },
+              prev: function () {
+                backActionHandler()
+              },
+              goTo: function (formNumber) {
+                setCurrentForm(formNumber)
+              }
+            }
+          }}
+        >
+          <Form productCode={productCode} />
+        </MultipartFormContext.Provider>
+      </ViewContent>
     </>
   )
 }
 
+// TODO: Refactor Header to @kiwi/ui
 export const Header = styled.header`
-  padding: 0.5rem 1rem;
-  background-color: #dcdfe5;
+  border-bottom: 2px solid #dcdfe5;
   color: #0d0d1b;
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  display: flex;
+  flex-direction: column;
+  margin: 0 2rem 1rem 2rem;
+  padding: 2rem 0;
+`
+
+// TODO: Make name better in context of content.
+const HeaderTop = styled.div`
+  display: flex;
   align-items: center;
+  margin-bottom: 1rem;
+
+  // Hack "gap: 2rem" in because Safari doesnt support "@supports" or "gap" properly :roll_eyes:
+  *:not(:first-child) {
+    margin-left: 2rem;
+  }
 `
 
 PostScanningView.propTypes = {

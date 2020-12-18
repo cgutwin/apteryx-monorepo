@@ -34,12 +34,6 @@ export default new Typography({
     p: {
       ...scale(0 / 5),
       fontFamily: "Inter, sans-serif"
-    },
-    label: {
-      ...scale(-0.5 / 5),
-      fontFamily: "Manrope, sans-serif",
-      fontWeight: "600",
-      textTransform: "uppercase"
     }
   })
 })

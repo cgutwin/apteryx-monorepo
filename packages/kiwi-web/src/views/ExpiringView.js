@@ -37,7 +37,7 @@ function ExpiringView() {
         <SegmentedControls
           segments={[
             {
-              name: "Products Expiring"
+              name: "Expiring"
             },
             {
               name: "Pulled"
