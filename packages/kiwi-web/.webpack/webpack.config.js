@@ -1,6 +1,7 @@
 const path = require("path")
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const { ESBuildPlugin } = require("esbuild-loader")
+const CopyPlugin = require("copy-webpack-plugin")
 
 module.exports = {
   mode: "development",
@@ -51,6 +52,9 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: "./src/index.html"
     }),
-    new ESBuildPlugin()
+    new ESBuildPlugin(),
+    new CopyPlugin({
+      patterns: [{ from: "public", to: "." }]
+    })
   ]
 }
