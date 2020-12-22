@@ -1,0 +1,30 @@
+{
+  "name": "@apteryx/core",
+  "version": "1.0.0",
+  "description": "Apteryx server",
+  "author": "Chris Gutwin <24538491+cgutwin@users.noreply.github.com>",
+  "homepage": "https://github.com/cgutwin/apteryx#readme",
+  "license": "MIT",
+  "dependencies": {
+    "@apteryx/http": "1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6",
+    "typescript": "^4.1.3"
+  },
+  "scripts": {
+    "bootstrap": "yarn",
+    "tsc": "tsc",
+    "start": "nodemon"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "dist"
+    ],
+    "ignore": [
+      "dist/typings"
+    ],
+    "ext": "js",
+    "verbose": true
+  }
+}
