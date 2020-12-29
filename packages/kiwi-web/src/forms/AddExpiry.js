@@ -1,5 +1,6 @@
 import { TextInput } from "@kiwi/ui"
 import React, { useContext } from "react"
+import styled from "styled-components"
 import MultipartFormContext from "../context/MultipartFormContext"
 import serializeFormData from "./serializeFormData"
 
@@ -14,6 +15,8 @@ export default function AddExpiry() {
     multiPartFormContext.formData.update({
       [multiPartFormContext.formControls.current.id]: serializedFormData
     })
+
+    alert(JSON.stringify(multiPartFormContext.formData.data))
   }
 
   return (
@@ -26,7 +29,17 @@ export default function AddExpiry() {
           fontFamily: "Manrope, sans-serif"
         }}
       />
-      <input type="submit" value="Done" />
+      <SubmitButton type="submit" value="Create Expiry" />
     </form>
   )
 }
+
+const SubmitButton = styled.input`
+  background: #31f58d;
+  border-radius: 2rem;
+  border: none;
+  width: calc(100% - 4rem);
+  padding: 1rem;
+  position: absolute;
+  bottom: 4rem;
+`

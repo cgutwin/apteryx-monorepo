@@ -74,7 +74,6 @@ function PostScanningView({ productCode }) {
         </div>
       </Header>
       <ViewContent>
-        {JSON.stringify(fullFormData)}
         <MultipartFormContext.Provider
           value={{
             formData: {
@@ -113,7 +112,7 @@ export const Header = styled.header`
   color: #0d0d1b;
   display: flex;
   flex-direction: column;
-  margin: 0 2rem 1rem 2rem;
+  margin: 0 2rem 2rem 2rem;
   padding: 2rem 0;
 `
 
