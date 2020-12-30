@@ -1,8 +1,8 @@
 import { Schema } from "mongoose"
 
 const productSchema = new Schema({
-  id: String,
-  name: String
+  name: String,
+  upc: String
 })
 
 export default productSchema

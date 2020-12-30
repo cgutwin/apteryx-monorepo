@@ -5,12 +5,12 @@ const ProductModule = createModule({
   id: "product",
   typeDefs: gql`
     input ProductInput {
-      id: ID!
       name: String!
+      upc: String!
     }
     type Product {
-      id: ID!
       name: String!
+      upc: String!
     }
     extend type Query {
       product: [Product]

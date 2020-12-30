@@ -19,3 +19,4 @@ const RootModule = createModule({
 
 export default RootModule
 export { default as ProductModule } from "./product"
+export { default as ExpiryModule } from "./expiry"
