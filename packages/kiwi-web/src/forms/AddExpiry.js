@@ -1,11 +1,14 @@
+import { useMutation } from "@apollo/client"
 import { TextInput } from "@kiwi/ui"
 import React, { useContext } from "react"
 import styled from "styled-components"
 import MultipartFormContext from "../context/MultipartFormContext"
+import CREATE_PRODUCT from "../graphql/mutations/createProduct"
 import serializeFormData from "./serializeFormData"
 
 export default function AddExpiry() {
   const multiPartFormContext = useContext(MultipartFormContext)
+  const [createProduct] = useMutation(CREATE_PRODUCT)
 
   const onSubmitHandler = (evt) => {
     evt.preventDefault()
@@ -14,6 +17,15 @@ export default function AddExpiry() {
 
     multiPartFormContext.formData.update({
       [multiPartFormContext.formControls.current.id]: serializedFormData
+    })
+
+    createProduct({
+      variables: {
+        product: {
+          name: multiPartFormContext.formData.data.productData.ProductName,
+          upc: multiPartFormContext.formData.data.productData.ProductUPC
+        }
+      }
     })
 
     alert(JSON.stringify(multiPartFormContext.formData.data))
@@ -25,6 +37,7 @@ export default function AddExpiry() {
         id="ExpiryDateInput"
         name="ExpiryDate"
         label="Expiry Date"
+        value={multiPartFormContext.formData.data[multiPartFormContext.formControls.current.id]?.ExpiryDate || ""}
         style={{
           fontFamily: "Manrope, sans-serif"
         }}
