@@ -1,5 +1,5 @@
-import GraphQLServer from "@apteryx/graphql"
-import HTTPServer from "@apteryx/http"
+import GraphQLServer from "./graphql"
+import HTTPServer from "./http"
 
 const graphQlServer = new GraphQLServer(true).loadServer()
 const server = new HTTPServer(4000, [
