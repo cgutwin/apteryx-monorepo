@@ -6,6 +6,7 @@ const RootModule = createModule({
     type Query {
       ping: String
     }
+    type Mutation
   `,
   resolvers: {
     Query: {
