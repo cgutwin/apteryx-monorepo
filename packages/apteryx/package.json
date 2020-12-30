@@ -12,7 +12,8 @@
     "express": "^4.17.1",
     "express-graphql": "^0.12.0",
     "graphql": "^15.4.0",
-    "graphql-modules": "^1.1.0"
+    "graphql-modules": "^1.1.0",
+    "mongoose": "^5.11.9"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.0",
