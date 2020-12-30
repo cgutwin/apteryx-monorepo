@@ -1,4 +1,4 @@
-import Expiry from "../../mongo/models/Expiry"
+import Expiry from "../../mongo/models/expiry"
 
 export default {
   Query: {

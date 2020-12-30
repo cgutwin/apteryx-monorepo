@@ -1,4 +1,4 @@
-import Product from "../../mongo/models/Product"
+import Product from "../../mongo/models/product"
 
 export default {
   Query: {
