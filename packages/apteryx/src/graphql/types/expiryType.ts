@@ -16,12 +16,14 @@ export default gql`
   type Expiry {
     upc: String!
     expiring: Float!
+    isPulled: Boolean!
   }
 
   type ExpiryLookup {
     upc: String!
     expiring: Float!
     product: [Product]
+    isPulled: Boolean!
   }
 
   extend type Query {
