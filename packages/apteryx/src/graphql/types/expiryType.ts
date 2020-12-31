@@ -29,6 +29,7 @@ export default gql`
   extend type Query {
     expiring: [ExpiryLookup]
     expiringOn(date: Float!, when: ExpiringOnWhen!): [ExpiryLookup]
+    queryAllPulled(date: Float): [ExpiryLookup]
   }
 
   extend type Mutation {
