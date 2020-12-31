@@ -1869,19 +1869,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/load-files@npm:^6.2.5":
-  version: 6.2.5
-  resolution: "@graphql-tools/load-files@npm:6.2.5"
-  dependencies:
-    globby: 11.0.1
-    tslib: ~2.0.1
-    unixify: 1.0.0
-  peerDependencies:
-    graphql: ^14.0.0 || ^15.0.0
-  checksum: 63feffbc89177b76bdc42e6167ae7f54a1d190c3a23ae1d5490ca500e34855eb4a98976553356d473ccf8795fcaec57dbe0e3cfe7a4807b985bb89c88982c3b6
-  languageName: node
-  linkType: hard
-
 "@graphql-tools/schema@npm:^7.0.0, @graphql-tools/schema@npm:^7.1.2":
   version: 7.1.2
   resolution: "@graphql-tools/schema@npm:7.1.2"
@@ -3855,6 +3842,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@typegoose/typegoose@npm:^7.4.6":
+  version: 7.4.6
+  resolution: "@typegoose/typegoose@npm:7.4.6"
+  dependencies:
+    lodash: ^4.17.20
+    loglevel: ^1.7.0
+    reflect-metadata: ^0.1.13
+    semver: ^7.3.2
+    tslib: ^2.0.1
+  peerDependencies:
+    "@types/mongoose": ^5.10.2
+    mongoose: 5.10.0 - 5.10.18
+  checksum: 8a12680947fd41dd2125cf48250be372d31fa3c90fe9aa882aa593f9e8b08fe74dcc54fb097d3d13a11889ef903c6068fed3e92e44f3185a3570ad4a76a38467
+  languageName: node
+  linkType: hard
+
 "@types/anymatch@npm:*":
   version: 1.3.1
   resolution: "@types/anymatch@npm:1.3.1"
@@ -4119,13 +4122,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mongodb@npm:^3.5.27":
+"@types/mongodb@npm:*, @types/mongodb@npm:^3.5.27":
   version: 3.6.3
   resolution: "@types/mongodb@npm:3.6.3"
   dependencies:
     "@types/bson": "*"
     "@types/node": "*"
   checksum: 2ccf239c496ad5a36ff014211a073a28878ddeda7f8a73c7e2f75a9587c295dec60fff57b6036b789c9e37d74923ddfb66e1d2f70c659b3f61c9382d2bff6b38
+  languageName: node
+  linkType: hard
+
+"@types/mongoose@npm:^5.10.3":
+  version: 5.10.3
+  resolution: "@types/mongoose@npm:5.10.3"
+  dependencies:
+    "@types/mongodb": "*"
+    "@types/node": "*"
+  checksum: d7f09d6bd91936a50cabff8b39e40c1313be2aa1ddfb71eea26b87cce75ee3e82947e8f0f07eda7fd86344be14e068674295081c5672d3f02df171c226adf5c6
   languageName: node
   linkType: hard
 
@@ -4963,11 +4976,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "apteryx@workspace:packages/apteryx"
   dependencies:
-    "@graphql-tools/load-files": ^6.2.5
+    "@typegoose/typegoose": ^7.4.6
     "@types/body-parser": ^1.19.0
     "@types/cors": ^2.8.9
     "@types/express": ^4.17.9
     "@types/express-graphql": ^0.9.0
+    "@types/mongoose": ^5.10.3
     "@types/node": ^14.14.16
     body-parser: ^1.19.0
     cors: ^2.8.5
@@ -4975,7 +4989,7 @@ __metadata:
     express-graphql: ^0.12.0
     graphql: ^15.4.0
     graphql-modules: ^1.1.0
-    mongoose: ^5.11.9
+    mongoose: ^5.10.4
     nodemon: ^2.0.6
     rimraf: ^3.0.2
     typescript: ^4.1.3
@@ -12739,7 +12753,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"loglevel@npm:^1.6.8":
+"loglevel@npm:^1.6.8, loglevel@npm:^1.7.0":
   version: 1.7.1
   resolution: "loglevel@npm:1.7.1"
   checksum: abee97e346afb3c7e4130eff3025b4e8da1450cf92495bd12f3cc5faff46d6f658f73529c21e7d75634677f48ab1e14ceb5167d1952f53e8aceba5cb795029c2
@@ -13467,7 +13481,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"mongoose@npm:5.11.9, mongoose@npm:^5.11.9":
+"mongoose@npm:5.11.9, mongoose@npm:^5.10.4":
   version: 5.11.9
   resolution: "mongoose@npm:5.11.9"
   dependencies:
@@ -16368,6 +16382,13 @@ fsevents@~2.1.2:
   version: 2.0.0
   resolution: "reduce-flatten@npm:2.0.0"
   checksum: 216ce860c78081b83f255cad4d032361677e4aea87dacecd387e62505e1e4a50dd947b3ce9166b70d8b9aaa45215c1b512c518b5384e5067ee7d29011da0efb4
+  languageName: node
+  linkType: hard
+
+"reflect-metadata@npm:^0.1.13":
+  version: 0.1.13
+  resolution: "reflect-metadata@npm:0.1.13"
+  checksum: 629101e6c8b7e0d3166fa51953f908f45b5c73dbaf1375c4f8c3ed62221b870c951343b9b031d0c49957e7262a88020f41be25731ee85b5d779f12c7cec66005
   languageName: node
   linkType: hard
 
@@ -19379,15 +19400,6 @@ typescript@^4.1.3:
   version: 2.0.0
   resolution: "universalify@npm:2.0.0"
   checksum: 36bfbdc97bd4b483596e66ea65e20663f5ab9ec3650157d99b075b7f97afcdefe46bbb23f89171dd75595d398cea3769a5b6d7130f5c66cae2a0f00904780f62
-  languageName: node
-  linkType: hard
-
-"unixify@npm:1.0.0":
-  version: 1.0.0
-  resolution: "unixify@npm:1.0.0"
-  dependencies:
-    normalize-path: ^2.1.1
-  checksum: 8a939fba417b50b84b4bded80bb26d1dc6aaf56eb292ec09e133e569ab7710e13dbb5210d49ff4153e419f560b4cda58b6dfaa8476df6b23be361552c563a65e
   languageName: node
   linkType: hard
 

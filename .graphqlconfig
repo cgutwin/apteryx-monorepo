@@ -1,0 +1,15 @@
+{
+  "name": "APTERYX_GRAPHQL_SCHEMA",
+  "schemaPath": "schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "dev_endpoint": {
+        "url": "http://localhost:4000",
+        "headers": {
+          "user-agent": "WEBSTORM-JS-GRAPHQL"
+        },
+        "introspect": false
+      }
+    }
+  }
+}

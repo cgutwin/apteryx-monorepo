@@ -1,29 +1,10 @@
-import { createModule, gql } from "graphql-modules"
+import { createModule } from "graphql-modules"
 import ExpiryResolver from "../resolvers/expiry"
+import expiryType from "../types/expiryType"
 
 const ExpiryModule = createModule({
   id: "expiry",
-  typeDefs: gql`
-    input ExpiryInput {
-      upc: String!
-      expiring: String!
-    }
-    type Expiry {
-      upc: String!
-      expiring: String!
-    }
-    type ExpiryLookup {
-      upc: String!
-      expiring: String!
-      product: [Product]
-    }
-    extend type Query {
-      expiring: [ExpiryLookup]
-    }
-    extend type Mutation {
-      createExpiry(expiry: ExpiryInput!): Expiry
-    }
-  `,
+  typeDefs: [expiryType],
   resolvers: ExpiryResolver
 })
 
