@@ -1,5 +1,6 @@
-import { getModelForClass, prop } from "@typegoose/typegoose"
+import { getModelForClass, modelOptions, prop } from "@typegoose/typegoose"
 
+@modelOptions({ options: { customName: "products" } })
 class ProductClass {
   @prop({ required: true, type: String })
   public name!: string
