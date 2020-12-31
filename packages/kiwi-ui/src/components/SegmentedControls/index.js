@@ -19,7 +19,7 @@ function Segment({ selected, onClick, children }) {
 
 function SegmentedControls({ segments, selected, onSegmentChange, ...props }) {
   const segmentDisplay = segments.map((segment, i) => (
-    <Segment selected={selected === i} onClick={onSegmentChange.bind(this, i)}>
+    <Segment key={i} selected={selected === i} onClick={onSegmentChange.bind(this, i)}>
       <p>{segment.name}</p>
     </Segment>
   ))
