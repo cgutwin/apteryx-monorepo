@@ -3,7 +3,7 @@ import "normalize.css"
 import React from "react"
 import { render } from "react-dom"
 import App from "./App"
-import client from "./graphql"
+import client from "./graphql/client"
 import "./styles/global.css"
 import typography from "./styles/typography"
 
