@@ -1,8 +1,8 @@
 import { createApplication } from "graphql-modules"
-import RootModule, * as modules from "./modules"
+import * as gqlModules from "./modules"
 
 const app = createApplication({
-  modules: [RootModule, modules.ProductModule, modules.ExpiryModule]
+  modules: [gqlModules.default, gqlModules.ExpiryModule, gqlModules.ProductModule]
 })
 
 export const schema = app.schema

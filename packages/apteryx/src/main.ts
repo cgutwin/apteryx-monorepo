@@ -1,4 +1,4 @@
-import GraphQLServer from "./graphql"
+import GraphQLServer from "./graphql/server"
 import HTTPServer from "./http"
 
 const graphQlServer = new GraphQLServer(true).loadServer()
