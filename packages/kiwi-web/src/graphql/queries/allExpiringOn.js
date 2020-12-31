@@ -8,6 +8,7 @@ const ALL_EXPIRING_ON = gql`
       product {
         name
       }
+      isPulled
     }
   }
 `
