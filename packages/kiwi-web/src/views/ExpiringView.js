@@ -1,8 +1,9 @@
-import { useQuery } from "@apollo/client"
-import { Header, SegmentedControls } from "@kiwi/ui"
+import { useMutation, useQuery } from "@apollo/client"
+import { Header, ProductCard, SegmentedControls } from "@kiwi/ui"
 import React, { createContext, useContext, useState } from "react"
 import LinearCalendar from "../components/LinearCalendar"
 import ViewContext from "../context/ViewContext"
+import UPDATE_PULL_STATE from "../graphql/mutations/updatePullState"
 import ALL_EXPIRING_ON from "../graphql/queries/allExpiringOn"
 import { ViewContent } from "../templates/View"
 import ScanningView from "./ScanningView"
@@ -14,6 +15,17 @@ const DateContext = createContext(null)
 function ExpiringItemsView({ date, pulled }) {
   const dateString = new Date(date).toString().split(" ").splice(1, 3).join(" ")
   const dateMs = Date.parse(dateString)
+  const [updatePullState] = useMutation(UPDATE_PULL_STATE, {
+    refetchQueries: [
+      {
+        query: ALL_EXPIRING_ON,
+        variables: {
+          date: dateMs,
+          when: "ON"
+        }
+      }
+    ]
+  })
 
   const { loading, error, data } = useQuery(ALL_EXPIRING_ON, {
     variables: {
@@ -33,10 +45,22 @@ function ExpiringItemsView({ date, pulled }) {
 
   return data.expiringOn.map((expiry, i) =>
     pulled === expiry.isPulled ? (
-      <div key={i}>
-        <h4>{expiry.product[0].name}</h4>
-        <p>{expiry.upc}</p>
-      </div>
+      <ProductCard
+        key={i}
+        name={expiry.product[0].name}
+        upc={expiry.upc}
+        checkboxProps={{
+          checked: expiry.isPulled,
+          onChange: function () {
+            updatePullState({
+              variables: {
+                upc: expiry.upc,
+                value: !expiry.isPulled
+              }
+            })
+          }
+        }}
+      />
     ) : null
   )
 }
@@ -80,11 +104,17 @@ function ExpiringView() {
           onSegmentChange={segmentChangeHandler}
           selected={selectedSegment}
         />
-        {selectedSegment === 0 ? (
-          <ExpiringItemsView date={activeDate} pulled={false} />
-        ) : (
-          <ExpiringItemsView date={activeDate} pulled={true} />
-        )}
+        <section
+          style={{
+            padding: "0.5rem 0"
+          }}
+        >
+          {selectedSegment === 0 ? (
+            <ExpiringItemsView date={activeDate} pulled={false} />
+          ) : (
+            <ExpiringItemsView date={activeDate} pulled={true} />
+          )}
+        </section>
       </ViewContent>
     </DateContext.Provider>
   )
