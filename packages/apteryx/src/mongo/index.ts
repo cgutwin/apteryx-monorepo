@@ -6,7 +6,8 @@ async function open(url = connectionURL) {
   const options = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    serverSelectionTimeoutMS: 5000
+    serverSelectionTimeoutMS: 5000,
+    useFindAndModify: false
   }
   mongoose.connection.on("open", (): void => console.log(`Connected to ${connectionURL}.`))
   mongoose.connection.on("error", (err: Error): void => console.error(err))

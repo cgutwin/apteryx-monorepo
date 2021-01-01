@@ -34,5 +34,6 @@ export default gql`
 
   extend type Mutation {
     createExpiry(expiry: ExpiryInput!): Expiry
+    updatePullState(upc: String!, value: Boolean!): Expiry
   }
 `

@@ -92,6 +92,10 @@ export default {
     // @ts-ignore
     createExpiry: async function (_, { expiry }) {
       return Expiry.create({ ...expiry })
+    },
+    // @ts-ignore
+    updatePullState: async function (_, { upc, value }) {
+      return Expiry.findOneAndUpdate({ upc }, { $set: { isPulled: value } }, { new: true })
     }
   }
 }
