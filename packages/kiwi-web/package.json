@@ -34,6 +34,7 @@
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
+    "react-datepicker": "^3.3.0",
     "react-dom": "^17.0.1",
     "react-is": "^17.0.1",
     "styled-components": "^5.2.1",

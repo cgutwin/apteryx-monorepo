@@ -1,57 +1,25 @@
 import { BackButton, FormProgressBar } from "@kiwi/ui"
-import * as PropTypes from "prop-types"
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useState } from "react"
 import styled from "styled-components"
-import MultipartFormContext from "../context/MultipartFormContext"
 import ViewContext from "../context/ViewContext"
-import AddExpiry from "../forms/AddExpiry"
-import AddProductData from "../forms/AddProductData"
+import AddExpiryForm from "../forms/AddExpiryForm"
+import AddProductForm from "../forms/AddProductForm"
 import { ViewContent } from "../templates/View"
 import ExpiringView from "./ExpiringView"
+import MultipartFormController from "../components/MultipartFormController"
 
-// The multipart form switcher.
-function PostScanningView({ productCode }) {
-  // Default view you will always get is the create expiry form. If the product doesn't exist then it will append
-  const [currentForm, setCurrentForm] = useState(0)
-  const [fullFormData, setFullFormData] = useState({})
-  // the add product form.
-  const [formStack, setFormStack] = useState([
-    {
-      formId: "expiryData",
-      title: "Create the Expiry",
-      subscript: productCode,
-      component: AddExpiry
-    }
-  ])
+function PostScanningView() {
   const viewContext = useContext(ViewContext)
+  const [currentFormMeta, setCurrentFormMeta] = useState({
+    currentForm: null,
+    title: "UNSET_FORM_TITLE",
+    subscript: "UNSET_FORM_SUBSCRIPT"
+  })
 
-  // On mount, query the database, if the product exists. If it does, we just need to create new expiry information.
-  // If not, we also need to add an entry for the product itself in the db.
-  useEffect(() => {
-    if (productCode !== "06580013009") {
-      // Prepend the AddProductData form if the entry doesn't exist.
-      setFormStack([
-        {
-          formId: "productData",
-          title: "Add the Product Data",
-          subscript: productCode,
-          component: AddProductData
-        },
-        ...formStack
-      ])
-    }
-  }, [])
+  // todo: query product by upc, if exists, remove AddProductForm from the stack below.
 
-  // Used to pass the form progress to the progress bar.
-  const formProgress = (currentForm + 1) / formStack.length
-  const Form = formStack[currentForm].component
-
-  // We need a special handler for navigating back in these views, as if you are adding an expiry after a product,
-  // you don't want to go back to the main expiry view.
-  const backActionHandler = () => {
-    if (currentForm > 0) {
-      setCurrentForm(currentForm - 1)
-    } else viewContext.setCurrentView(<ExpiringView />)
+  const onFormChange = (data) => {
+    setCurrentFormMeta({ ...currentFormMeta, ...data })
   }
 
   return (
@@ -59,48 +27,25 @@ function PostScanningView({ productCode }) {
       <Header>
         <HeaderTop>
           <BackButton
-            onClick={backActionHandler}
+            onClick={() => viewContext.setCurrentView(<ExpiringView />)}
             style={{
               background: "#E8EAED",
               borderRadius: "2rem",
               padding: "0.75rem"
             }}
           />
-          <FormProgressBar progress={formProgress} />
+          <FormProgressBar progress={currentFormMeta.currentForm / 2} />
         </HeaderTop>
         <div>
-          <h2>{formStack[currentForm].title}</h2>
-          <p>{formStack[currentForm].subscript}</p>
+          <h2>{currentFormMeta.title}</h2>
+          <p>{currentFormMeta.subscript}</p>
         </div>
       </Header>
       <ViewContent>
-        <MultipartFormContext.Provider
-          value={{
-            formData: {
-              data: fullFormData,
-              update: function (dataPart) {
-                setFullFormData({ ...this.data, ...dataPart })
-              }
-            },
-            formControls: {
-              current: {
-                value: currentForm,
-                id: formStack[currentForm].formId
-              },
-              next: function () {
-                setCurrentForm(this.current.value + 1)
-              },
-              prev: function () {
-                backActionHandler()
-              },
-              goTo: function (formNumber) {
-                setCurrentForm(formNumber)
-              }
-            }
-          }}
-        >
-          <Form productCode={productCode} />
-        </MultipartFormContext.Provider>
+        <MultipartFormController
+          onFormChange={onFormChange}
+          forms={[<AddProductForm key={0} upc="1" />, <AddExpiryForm key={1} />]}
+        />
       </ViewContent>
     </>
   )
@@ -127,9 +72,5 @@ const HeaderTop = styled.div`
     margin-left: 2rem;
   }
 `
-
-PostScanningView.propTypes = {
-  productCode: PropTypes.string.isRequired
-}
 
 export default PostScanningView
