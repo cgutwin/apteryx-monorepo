@@ -17,7 +17,7 @@ function ScanningView() {
   useEffect(() => {
     if (results.codeResult) {
       alert(results.codeResult.code)
-      viewContext.setCurrentView(<PostScanningView productCode={results.codeResult.code} />)
+      viewContext.setCurrentView(<PostScanningView code={results.codeResult.code} />)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [results])

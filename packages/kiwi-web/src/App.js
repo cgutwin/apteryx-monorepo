@@ -3,7 +3,7 @@ import ViewContext from "./context/ViewContext"
 import PostScanningView from "./views/PostScanningView"
 
 function App() {
-  const [currentView, setCurrentView] = useState(<PostScanningView productCode="065800130098" />)
+  const [currentView, setCurrentView] = useState(<PostScanningView code="1" />)
 
   return (
     <ViewContext.Provider
