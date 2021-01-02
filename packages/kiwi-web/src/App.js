@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import ViewContext from "./context/ViewContext"
-import PostScanningView from "./views/PostScanningView"
+import ExpiringView from "./views/ExpiringView"
 
 function App() {
-  const [currentView, setCurrentView] = useState(<PostScanningView code="1" />)
+  const [currentView, setCurrentView] = useState(<ExpiringView />)
 
   return (
     <ViewContext.Provider

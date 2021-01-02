@@ -2,7 +2,7 @@ import * as PropTypes from "prop-types"
 import React, { useEffect, useState } from "react"
 import MultiformContext from "../context/MultiformContext"
 
-function MultipartFormController({ forms, onFormChange }) {
+function MultipartFormController({ forms, onFormChange, onSubmit }) {
   const [formData, setFormData] = useState({})
   const [currentForm, setCurrentForm] = useState(0)
   // By setting a will submit, we conditionally submit on formData updates, so we can access the latest state.
@@ -29,9 +29,7 @@ function MultipartFormController({ forms, onFormChange }) {
   const triggerSubmit = () => setWillSubmit(true)
 
   // Don't call this directly. Call triggerSubmit instead.
-  const submitForm = () => {
-    alert(JSON.stringify(formData))
-  }
+  const submitForm = () => onSubmit(formData)
 
   const nextFormInStack = (submitIfLast = true) => {
     if (currentForm + 1 !== forms.length) setCurrentForm((prevState) => prevState + 1)
@@ -66,7 +64,8 @@ MultipartFormController.propTypes = {
       title: PropTypes.string.isRequired
     })
   ),
-  onFormChange: PropTypes.func
+  onFormChange: PropTypes.func,
+  onSubmit: PropTypes.func.isRequired
 }
 
 export default MultipartFormController

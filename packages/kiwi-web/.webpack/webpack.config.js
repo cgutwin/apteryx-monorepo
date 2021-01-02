@@ -46,7 +46,10 @@ module.exports = {
     disableHostCheck: true,
     public: "0.0.0.0:3000",
     contentBase: path.join(__dirname, "../public"),
-    overlay: true
+    overlay: true,
+    proxy: {
+      "/graphql": "http://localhost:4000"
+    }
   },
   plugins: [
     new HtmlWebPackPlugin({

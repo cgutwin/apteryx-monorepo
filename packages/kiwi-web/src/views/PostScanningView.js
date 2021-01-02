@@ -1,5 +1,5 @@
-import { useQuery } from "@apollo/client"
-import { FormProgressBar, BackButton } from "@kiwi/ui"
+import { useMutation, useQuery } from "@apollo/client"
+import { BackButton, FormProgressBar } from "@kiwi/ui"
 import * as PropTypes from "prop-types"
 import React, { useContext, useState } from "react"
 import styled from "styled-components"
@@ -7,12 +7,15 @@ import MultipartFormController from "../components/MultipartFormController"
 import ViewContext from "../context/ViewContext"
 import AddExpiryDataForm from "../forms/AddExpiryDataForm"
 import AddProductDataForm from "../forms/AddProductDataForm"
+import CREATE_EXPIRY from "../graphql/mutations/createExpiry"
+import CREATE_PRODUCT from "../graphql/mutations/createProduct"
 import QUERY_PRODUCT from "../graphql/queries/queryProduct"
 import { ViewContent } from "../templates/View"
 import ExpiringView from "./ExpiringView"
 
 function PostScanningView({ code }) {
   const viewContext = useContext(ViewContext)
+  const [queriedProduct, setQueriedProduct] = useState({})
   const [multiformMeta, setMultiformMeta] = useState({})
   // Contains all the forms that will be rendered by the MultiformController.
   const [multiformStack, setMultiformStack] = useState([
@@ -21,6 +24,8 @@ function PostScanningView({ code }) {
       title: "Add Expiry Info"
     }
   ])
+  const [createProduct] = useMutation(CREATE_PRODUCT)
+  const [createExpiry] = useMutation(CREATE_EXPIRY)
 
   const { loading } = useQuery(QUERY_PRODUCT, {
     variables: {
@@ -37,7 +42,7 @@ function PostScanningView({ code }) {
           },
           ...multiformStack
         ])
-      }
+      } else setQueriedProduct(data.product[0])
     }
   })
 
@@ -67,6 +72,27 @@ function PostScanningView({ code }) {
         <MultipartFormController
           forms={multiformStack}
           onFormChange={(props) => setMultiformMeta((prevState) => ({ ...prevState, ...props }))}
+          onSubmit={(data) => {
+            if (data.product)
+              createProduct({
+                variables: {
+                  product: data.product
+                }
+              })
+            if (data.expiry) {
+              const dateInUnix = data.expiry.expiring.split("-")
+              const expiryDate = new Date(dateInUnix[0], dateInUnix[1] - 1, dateInUnix[2])
+              createExpiry({
+                variables: {
+                  expiry: {
+                    expiring: Date.parse(expiryDate.toString()),
+                    upc: queriedProduct.upc || data.product.upc
+                  }
+                }
+              })
+            }
+            viewContext.setCurrentView(<ExpiringView />)
+          }}
         />
       </ViewContent>
     </>
