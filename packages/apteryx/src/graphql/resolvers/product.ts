@@ -2,7 +2,9 @@ import Product, { ProductClass } from "../../mongo/models/product"
 
 export default {
   Query: {
-    product: async function (): Promise<ProductClass[]> {
+    // @ts-ignore
+    product: async function (_, { upc }): Promise<ProductClass[]> {
+      if (upc) return Product.find({ upc })
       return Product.find({})
     }
   },

@@ -12,7 +12,7 @@ export default gql`
   }
 
   extend type Query {
-    product: [Product]
+    product(upc: String): [Product]
   }
 
   extend type Mutation {
