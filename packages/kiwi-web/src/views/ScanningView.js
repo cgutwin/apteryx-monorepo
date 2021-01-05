@@ -18,11 +18,9 @@ function ScanningView() {
     if (results.codeResult) {
       viewContext.setCurrentView(<PostScanningView code={results.codeResult.code} />)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [results])
 
   return (
-    /* EXTRACT-STYLES */
     <div
       style={{
         maxHeight: "100vh",

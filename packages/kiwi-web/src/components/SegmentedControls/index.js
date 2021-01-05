@@ -1,21 +1,8 @@
 import { AnimateSharedLayout } from "framer-motion"
 import React from "react"
-import { ControlsBase, SegmentDisplay, SelectedSegment } from "./styles"
-
-function Segment({ selected, onClick, children }) {
-  const spring = {
-    type: "spring",
-    stiffness: 800,
-    damping: 50
-  }
-
-  return (
-    <SegmentDisplay whileTap={{ scale: 0.96 }} selected={selected} onClick={onClick}>
-      {children}
-      {selected && <SelectedSegment layoutId="selected" initial={false} transition={spring} />}
-    </SegmentDisplay>
-  )
-}
+import { ControlsBase } from "./styles"
+import Segment from "./Segment"
+import PropTypes from "prop-types"
 
 function SegmentedControls({ segments, selected, onSegmentChange, ...props }) {
   const segmentDisplay = segments.map((segment, i) => (
@@ -29,6 +16,12 @@ function SegmentedControls({ segments, selected, onSegmentChange, ...props }) {
       <ControlsBase {...props}>{segmentDisplay}</ControlsBase>
     </AnimateSharedLayout>
   )
+}
+
+SegmentedControls.propTypes = {
+  onSegmentChange: PropTypes.func.isRequired,
+  segments: PropTypes.array.isRequired,
+  selected: PropTypes.number.isRequired
 }
 
 export default SegmentedControls

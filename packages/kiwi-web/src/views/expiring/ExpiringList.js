@@ -1,3 +1,4 @@
+import PropTypes from "prop-types"
 import React from "react"
 import ProductCard from "../../components/cards/Product"
 
@@ -17,6 +18,23 @@ function ExpiringList({ products, refetch }) {
         />
       )
   )
+}
+
+ExpiringList.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      upc: PropTypes.string,
+      expiring: PropTypes.number,
+      product: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string,
+          upc: PropTypes.string
+        })
+      ),
+      isPulled: PropTypes.bool
+    })
+  ).isRequired,
+  refetch: PropTypes.func.isRequired
 }
 
 export default ExpiringList

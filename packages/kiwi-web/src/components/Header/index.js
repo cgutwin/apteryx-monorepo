@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import React from "react"
-import AddIcon from "../icons/Plus"
+import AddIcon from "../../assets/plus.svg"
 import * as Styled from "./styles"
 
 export default function Header({ title, onButtonClick, children }) {

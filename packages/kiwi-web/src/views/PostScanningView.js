@@ -18,7 +18,9 @@ const ExpiringView = React.lazy(() => import("./expiring/ExpiringView"))
 
 function PostScanningView({ code }) {
   const viewContext = useContext(ViewContext)
+  // If the initial query finds a product in the database, it gets set to queriedProduct
   const [queriedProduct, setQueriedProduct] = useState({})
+  // The multiform meta contains information about the multiform.
   const [multiformMeta, setMultiformMeta] = useState({})
   // Contains all the forms that will be rendered by the MultiformController. The expiry data form will always be
   // present, and that is set first, as that's the point (the app manages expiries).

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import React from "react"
-import BackIcon from "../icons/LeftArrow"
+import BackIcon from "../../assets/left-arrow.svg"
 import { IconButton } from "./styles"
 
 export default function BackButton({ onClick, ...props }) {
@@ -12,6 +12,5 @@ export default function BackButton({ onClick, ...props }) {
 }
 
 BackButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  props: PropTypes.node.isRequired
+  onClick: PropTypes.func.isRequired
 }

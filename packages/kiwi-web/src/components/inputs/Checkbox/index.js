@@ -1,5 +1,6 @@
+import PropTypes from "prop-types"
 import React from "react"
-import Check from "../../icons/Check"
+import Check from "../../../assets/check.svg"
 import { CheckboxStyle, Input } from "./style"
 
 function Checkbox({ checked, styleOverride, ...props }) {
@@ -18,6 +19,11 @@ function Checkbox({ checked, styleOverride, ...props }) {
       </label>
     </div>
   )
+}
+
+Checkbox.propTypes = {
+  checked: PropTypes.bool.isRequired,
+  styleOverride: PropTypes.object.isRequired
 }
 
 export default Checkbox
