@@ -1,4 +1,4 @@
-import * as PropTypes from "prop-types"
+import PropTypes from "prop-types"
 import React, { useContext } from "react"
 import TextBasedInput from "../components/inputs/TextBasedInput"
 import MultiformContext from "../context/MultiformContext"

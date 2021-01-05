@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@apollo/client"
-import * as PropTypes from "prop-types"
+import PropTypes from "prop-types"
 import React, { Suspense, useContext, useState } from "react"
 import styled from "styled-components"
 import BackButton from "../components/buttons/BackButton"

@@ -459,6 +459,7 @@ __metadata:
     react-datepicker: ^3.3.0
     react-dom: ^17.0.1
     react-is: ^17.0.1
+    rimraf: ^3.0.2
     style-loader: ^2.0.0
     styled-components: ^5.2.1
     typography: ^0.16.19
@@ -466,6 +467,7 @@ __metadata:
     webpack: ^5.11.1
     webpack-cli: ^4.3.1
     webpack-dev-server: ^3.11.1
+    webpack-merge: ^5.7.3
   languageName: unknown
   linkType: soft
 
@@ -14111,6 +14113,16 @@ typescript@^4.1.3:
   languageName: node
   linkType: hard
 
+"webpack-merge@npm:^5.7.3":
+  version: 5.7.3
+  resolution: "webpack-merge@npm:5.7.3"
+  dependencies:
+    clone-deep: ^4.0.1
+    wildcard: ^2.0.0
+  checksum: 5e28f66f597cb34ac5f7ca0881cd3f106265091e47d7cda9ae00f4902283efdfdab36a70e34a9cf7b1467aac021178981513393b7dcddbb84caf11920f269379
+  languageName: node
+  linkType: hard
+
 "webpack-sources@npm:^2.1.1, webpack-sources@npm:^2.2.0":
   version: 2.2.0
   resolution: "webpack-sources@npm:2.2.0"
@@ -14231,6 +14243,13 @@ typescript@^4.1.3:
   dependencies:
     string-width: ^4.0.0
   checksum: 729c30582e49bdcb1372216eedfd71d1640a1344a4b4e970bc9f33d575b56b130f530b383fbab2cf2bcffb76ea4357e6a66939778d8de91ca66037651d94e01a
+  languageName: node
+  linkType: hard
+
+"wildcard@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "wildcard@npm:2.0.0"
+  checksum: 207baede4d6d41fc1aefcc4727c95ca6f29eaaf4d66478665fe0ac17232709637426ae96fd79deb3b68da3564e7bde7f2be63e5c3665ac8f63ee92364c0a2dd3
   languageName: node
   linkType: hard
 

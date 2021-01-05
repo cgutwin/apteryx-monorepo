@@ -1,4 +1,4 @@
-import * as PropTypes from "prop-types"
+import PropTypes from "prop-types"
 import React, { useEffect, useState } from "react"
 import MultiformContext from "../context/MultiformContext"
 
