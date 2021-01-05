@@ -1,23 +1,27 @@
 import { useMutation, useQuery } from "@apollo/client"
-import { BackButton, FormProgressBar } from "@kiwi/ui"
 import * as PropTypes from "prop-types"
-import React, { useContext, useState } from "react"
+import React, { Suspense, useContext, useState } from "react"
 import styled from "styled-components"
+import BackButton from "../components/buttons/BackButton"
+import FormProgressBar from "../components/forms/ProgressBar"
 import MultipartFormController from "../components/MultipartFormController"
 import ViewContext from "../context/ViewContext"
 import AddExpiryDataForm from "../forms/AddExpiryDataForm"
 import AddProductDataForm from "../forms/AddProductDataForm"
 import CREATE_EXPIRY from "../graphql/mutations/createExpiry"
 import CREATE_PRODUCT from "../graphql/mutations/createProduct"
-import QUERY_PRODUCT from "../graphql/queries/queryProduct"
+import { QUERY_PRODUCT } from "../graphql/queries"
 import { ViewContent } from "../templates/View"
-import ExpiringView from "./ExpiringView"
+
+// Lazy imports
+const ExpiringView = React.lazy(() => import("./expiring/ExpiringView"))
 
 function PostScanningView({ code }) {
   const viewContext = useContext(ViewContext)
   const [queriedProduct, setQueriedProduct] = useState({})
   const [multiformMeta, setMultiformMeta] = useState({})
-  // Contains all the forms that will be rendered by the MultiformController.
+  // Contains all the forms that will be rendered by the MultiformController. The expiry data form will always be
+  // present, and that is set first, as that's the point (the app manages expiries).
   const [multiformStack, setMultiformStack] = useState([
     {
       element: <AddExpiryDataForm key={"addExpiryDataForm"} />,
@@ -53,7 +57,12 @@ function PostScanningView({ code }) {
         <HeaderControls>
           <BackButton
             onClick={() => {
-              if (multiformMeta.currentForm === 0) viewContext.setCurrentView(<ExpiringView />)
+              if (multiformMeta.currentForm === 0)
+                viewContext.setCurrentView(
+                  <Suspense fallback={<div>loading</div>}>
+                    <ExpiringView />
+                  </Suspense>
+                )
               else multiformMeta.nav.prev()
             }}
             style={{
@@ -91,7 +100,11 @@ function PostScanningView({ code }) {
                 }
               })
             }
-            viewContext.setCurrentView(<ExpiringView />)
+            viewContext.setCurrentView(
+              <Suspense fallback={<div>loading</div>}>
+                <ExpiringView />
+              </Suspense>
+            )
           }}
         />
       </ViewContent>

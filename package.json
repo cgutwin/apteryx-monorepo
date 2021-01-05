@@ -10,7 +10,6 @@
   ],
   "scripts": {
     "apteryx": "yarn workspace apteryx",
-    "kiwi-web": "yarn workspace @kiwi/web",
-    "kiwi-ui": "yarn workspace @kiwi/ui"
+    "kiwi-web": "yarn workspace @kiwi/web"
   }
 }

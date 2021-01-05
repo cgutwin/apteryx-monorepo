@@ -4,4 +4,3 @@
 !.yarn/plugins
 .pnp.*
 **/ssl/*
-/packages/**/dist/

@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import TextBasedInput from "../components/Inputs/TextBasedInput"
+import TextBasedInput from "../components/inputs/TextBasedInput"
 import MultiformContext from "../context/MultiformContext"
 import serializeFormData from "../utils/serializeFormData"
 

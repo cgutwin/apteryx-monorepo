@@ -1,0 +1,23 @@
+import React from "react"
+import Check from "../../icons/Check"
+import { CheckboxStyle, Input } from "./style"
+
+function Checkbox({ checked, styleOverride, ...props }) {
+  return (
+    <div>
+      <label>
+        <Input aria-label="checkbox" checked={checked} type="checkbox" {...props} />
+        <CheckboxStyle checked={checked}>
+          <Check
+            style={{
+              visibility: checked ? "visible" : "hidden",
+              ...styleOverride
+            }}
+          />
+        </CheckboxStyle>
+      </label>
+    </div>
+  )
+}
+
+export default Checkbox

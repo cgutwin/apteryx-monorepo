@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import ViewContext from "./context/ViewContext"
-import ExpiringView from "./views/ExpiringView"
+import ExpiringView from "./views/expiring/ExpiringView"
 
 function App() {
   const [currentView, setCurrentView] = useState(<ExpiringView />)

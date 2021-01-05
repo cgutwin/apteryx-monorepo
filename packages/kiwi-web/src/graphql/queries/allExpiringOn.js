@@ -7,6 +7,7 @@ const ALL_EXPIRING_ON = gql`
       expiring
       product {
         name
+        upc
       }
       isPulled
     }

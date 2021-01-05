@@ -1,6 +1,13 @@
 version: "3"
 services:
   apteryx:
+    container_name: apteryx
+    build:
+      context: ./packages/apteryx
+      dockerfile: Dockerfile
+    depends_on :
+      - mongo
+  kiwi:
     container_name: kiwi-web
     build:
       context: .
@@ -9,3 +16,8 @@ services:
       - 80:80
     environment:
       NODE_ENV: production
+    depends_on :
+      - apteryx
+  mongo:
+    image: mongo
+

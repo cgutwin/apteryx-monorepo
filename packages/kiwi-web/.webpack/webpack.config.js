@@ -2,6 +2,7 @@ const path = require("path")
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const { ESBuildPlugin } = require("esbuild-loader")
 const CopyPlugin = require("copy-webpack-plugin")
+const Dotenv = require("dotenv-webpack")
 
 module.exports = {
   mode: "development",
@@ -36,21 +37,18 @@ module.exports = {
     ]
   },
   devtool: "eval-cheap-source-map",
-  devServer: {
-    historyApiFallback: true,
-    port: 3000,
-    https: true,
-    key: path.resolve(__dirname, "ssl/localhost.key"),
-    cert: path.resolve(__dirname, "ssl/localhost.crt"),
-    host: "0.0.0.0",
-    disableHostCheck: true,
-    public: "0.0.0.0:3000",
-    contentBase: path.join(__dirname, "../public"),
-    overlay: true,
-    proxy: {
-      "/graphql": "http://localhost:4000"
-    }
-  },
+  // devServer: {
+  //   historyApiFallback: true,
+  //   port: 3000,
+  //   https: true,
+  //   key: path.resolve(__dirname, "ssl/localhost.key"),
+  //   cert: path.resolve(__dirname, "ssl/localhost.crt"),
+  //   host: "0.0.0.0",
+  //   disableHostCheck: true,
+  //   public: "0.0.0.0:3000",
+  //   contentBase: path.join(__dirname, "../public"),
+  //   overlay: true
+  // },
   plugins: [
     new HtmlWebPackPlugin({
       template: "./src/index.html"
@@ -58,6 +56,7 @@ module.exports = {
     new ESBuildPlugin(),
     new CopyPlugin({
       patterns: [{ from: "public", to: "." }]
-    })
+    }),
+    new Dotenv()
   ]
 }

@@ -10,10 +10,12 @@
     "rootDir": "src",
     "sourceMap": true,
     "strict": true,
-    "target": "ES6"
+    "target": "ES6",
+    "skipLibCheck": true,
+    "types": []
   },
   "exclude": [
-    "node_modules",
-    "dist"
+    "node_modules/",
+    "dist/"
   ]
 }
