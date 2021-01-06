@@ -10,7 +10,7 @@ services:
   kiwi:
     container_name: kiwi-web
     build:
-      context: .
+      context: ./packages/kiwi-web
       dockerfile: Dockerfile
     ports:
       - 80:80

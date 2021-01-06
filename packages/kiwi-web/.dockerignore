@@ -1,0 +1,7 @@
+.idea/*
+.webpack/ssl/
+dist/
+.eslintrc.json
+.prettierrc
+Dockerfile
+README.md
