@@ -1,13 +1,18 @@
 import PropTypes from "prop-types"
 import React from "react"
-import Check from "../../../assets/check.svg"
+import Check from "../../../static/icons/check.svg"
 import { CheckboxStyle, Input } from "./style"
 
 function Checkbox({ checked, styleOverride, ...props }) {
   return (
     <div>
       <label>
-        <Input aria-label="checkbox" checked={checked} type="checkbox" {...props} />
+        <Input
+          aria-label="checkbox"
+          checked={checked}
+          type="checkbox"
+          {...props}
+        />
         <CheckboxStyle checked={checked}>
           <Check
             style={{

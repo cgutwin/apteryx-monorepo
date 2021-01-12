@@ -1,13 +1,11 @@
 import { ApolloProvider } from "@apollo/client"
-import "normalize.css"
 import React from "react"
-import { render } from "react-dom"
+import ReactDOM from "react-dom"
 import App from "./App"
 import client from "./graphql/client"
-import "./styles/global.css"
-import typography from "./styles/typography"
+import typography from "./typography"
 
-render(
+ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <App />

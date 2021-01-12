@@ -10,9 +10,19 @@ function Segment({ selected, onClick, children }) {
   }
 
   return (
-    <SegmentDisplay whileTap={{ scale: 0.96 }} selected={selected} onClick={onClick}>
+    <SegmentDisplay
+      whileTap={{ scale: 0.96 }}
+      selected={selected}
+      onClick={onClick}
+    >
       {children}
-      {selected && <SelectedSegment layoutId="selected" initial={false} transition={spring} />}
+      {selected && (
+        <SelectedSegment
+          layoutId="selected"
+          initial={false}
+          transition={spring}
+        />
+      )}
     </SegmentDisplay>
   )
 }

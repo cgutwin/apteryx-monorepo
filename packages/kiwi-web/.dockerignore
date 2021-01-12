@@ -1,7 +1,8 @@
-.idea/*
-.webpack/ssl/
-dist/
-.eslintrc.json
-.prettierrc
-Dockerfile
-README.md
+.nyc_output
+.storybook
+.webpack/ssl
+dist
+node_modules
+.babelrc
+.dockerignore
+.enzymeconfig.js

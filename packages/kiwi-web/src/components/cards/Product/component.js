@@ -1,7 +1,7 @@
-import Checkbox from "../../inputs/Checkbox"
 import { useAnimation } from "framer-motion"
 import PropTypes from "prop-types"
 import React from "react"
+import Checkbox from "../../inputs/Checkbox"
 import { Card } from "./styles"
 
 function ProductCardComponent({ product, onChange, ...rest }) {
@@ -20,7 +20,12 @@ function ProductCardComponent({ product, onChange, ...rest }) {
   }
 
   return (
-    <Card whileTap={{ scale: 0.96 }} animate={cardControls} variants={variants} {...rest}>
+    <Card
+      whileTap={{ scale: 0.96 }}
+      animate={cardControls}
+      variants={variants}
+      {...rest}
+    >
       <div>
         <h6>{product.name}</h6>
         <p>{product.upc}</p>

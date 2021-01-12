@@ -1,33 +1,36 @@
 import PropTypes from "prop-types"
 import React from "react"
+import generateDatesList from "../../utils/generateDatesList"
+import getDateWithoutTime from "../../utils/getDateWithoutTime"
 import Calendar from "./Calendar"
-import { generateDatesList, useWindowDimensions } from "./utils"
 
-export default function LinearCalendar({ startDate, selectedDate, ...props }) {
-  const { width } = useWindowDimensions()
-  /**
-   * The dates render weird when the screen size is small, so lets dynamically generate the number of dates in the
-   * calendar based on how much the screen will show.
-   */
-  const daysShowing = width >= 400 ? 7 : 5
-  const datesToRender = generateDatesList(daysShowing, startDate)
-
-  const activeChangeHandler = (date) => selectedDate.set(date)
-
+/**
+ * @param {number} datesToDisplay
+ * @param {function} onChangeSelectedDate
+ * @param {Date} startDate
+ * @param {Date} selectedDate
+ * */
+export default function LinearCalendar({
+  datesToDisplay = 5,
+  onChangeSelectedDate,
+  startDate = new Date(),
+  selectedDate = new Date(),
+  ...rest
+}) {
+  const dates = generateDatesList(datesToDisplay, getDateWithoutTime(startDate))
   return (
     <Calendar
-      activeChangeHandler={activeChangeHandler}
+      dates={dates}
       selectedDate={selectedDate}
-      datesToRender={datesToRender}
-      {...props}
+      onChangeSelectedDate={onChangeSelectedDate}
+      {...rest}
     />
   )
 }
 
 LinearCalendar.propTypes = {
-  startDate: PropTypes.number.isRequired,
-  selectedDate: PropTypes.shape({
-    value: PropTypes.instanceOf(Date).isRequired,
-    set: PropTypes.func.isRequired
-  }).isRequired
+  datesToDisplay: PropTypes.number,
+  onChangeSelectedDate: PropTypes.func.isRequired,
+  startDate: PropTypes.instanceOf(Date),
+  selectedDate: PropTypes.instanceOf(Date).isRequired
 }

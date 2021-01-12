@@ -15,20 +15,22 @@ export const Input = styled.input`
 export const CheckboxStyle = styled.div`
   background: transparent;
   display: inline-block;
-  border: 2px solid rgba(0, 0, 0, 0.33);
+  border: 2px solid ${(props) => props.theme.backgroundTint};
   border-radius: 100%;
   width: 2rem;
   height: 2rem;
   transition: all 100ms;
   padding: 0.2rem;
-  
+
   ${Input}:focus & {
-    border: 2px solid #0D0D1B;
+    border: 2px solid #0d0d1b;
     box-shadow: 0 0 5px 1px rgba(13, 13, 27, 0.2);
   }
-  
-  ${props => props.checked && css`
-    background: #31F58D;
-    border: 2px solid rgba(255, 255, 255, 0.66);
-  `}
+
+  ${(props) =>
+    props.checked &&
+    css`
+      background: #31f58d;
+      border: 2px solid rgba(255, 255, 255, 0.66);
+    `}
 `

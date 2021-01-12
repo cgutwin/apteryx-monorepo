@@ -1,15 +1,17 @@
 import { motion } from "framer-motion"
 import styled, { css } from "styled-components"
+import { TRANSITION_TIME_MS } from "../../themes"
 
 export const ControlsBase = styled(motion.ul)`
-  background: #e8eaed;
-  border-radius: 2rem;
-  padding: 0.25rem;
-  margin: 0;
-  display: flex;
+  background: ${(props) => props.theme.backgroundAlt};
   align-content: center;
-  list-style: none;
+  border-radius: 2rem;
+  display: flex;
   font-family: sans-serif;
+  padding: 0.25rem;
+  list-style: none;
+  margin: 0;
+  transition: background ${TRANSITION_TIME_MS}, color ${TRANSITION_TIME_MS};
 `
 
 export const SegmentDisplay = styled(motion.li)`
@@ -36,8 +38,9 @@ export const SegmentDisplay = styled(motion.li)`
 `
 
 export const SelectedSegment = styled(motion.div)`
-  background: #f3f4f6;
+  background: ${(props) => props.theme.background};
   box-shadow: 0px 1px 4px rgba(13, 13, 27, 0.15);
   border-radius: 2rem;
+  transition: background ${TRANSITION_TIME_MS}, color ${TRANSITION_TIME_MS};
   width: 100%;
 `

@@ -1,8 +1,10 @@
 import { createContext } from "react"
 
 const DateContext = createContext({
-  activeDate: null,
-  setActiveDate: undefined
+  selectedDate: undefined,
+  setSelectedDate: function () {
+    return null
+  }
 })
 
 export default DateContext

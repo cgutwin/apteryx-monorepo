@@ -1,11 +1,11 @@
-# `@kiwi/web`
+# `kiwi-web`
 
 > TODO: description
 
 ## Usage
 
 ```
-const web = require('@kiwi/web');
+const kiwi = require('kiwi-web');
 
 // TODO: DEMONSTRATE API
 ```

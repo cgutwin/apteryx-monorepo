@@ -1,5 +1,5 @@
 {
-  "name": "apteryx2021",
+  "name": "apteryx-monorepo",
   "version": "1.0.0",
   "devDependencies": {
     "lerna": "^3.22.1"
@@ -11,5 +11,10 @@
   "scripts": {
     "apteryx": "yarn workspace apteryx",
     "kiwi-web": "yarn workspace @kiwi/web"
+  },
+  "dependenciesMeta": {
+    "@babel/register@7.12.10": {
+      "unplugged": true
+    }
   }
 }

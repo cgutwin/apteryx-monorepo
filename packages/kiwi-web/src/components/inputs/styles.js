@@ -25,13 +25,14 @@ export const InputWrapper = styled.div`
 
 export const Input = styled(InputReset)`
   &:focus {
-    border: 2px solid #31f58d;
+    border: 2px solid ${(props) => props.theme.accent};
     outline: none;
   }
 
   // This is just the background colour of the view, but TODO: change to a dynamic prop in the future.
-  background: #f3f4f6;
-  border: 2px solid #dcdfe5;
+  background: ${(props) => props.theme.background};
+  border: 2px solid ${(props) => props.theme.fade};
+  color: ${(props) => props.theme.text};
   border-radius: 1rem;
   padding: 1rem 1.5rem;
   margin: 0.5rem 0;
@@ -54,22 +55,22 @@ export const InputLabel = styled.label`
   ${({ focused }) =>
     focused &&
     css`
-      color: #0d0d1b !important;
+      color: ${(props) => props.theme.accent}!important;
     `};
 
-  color: rgba(13, 13, 27, 0.5);
+  color: ${(props) => props.theme.text};
   font-size: 1rem;
   height: fit-content;
   left: 1.5rem;
   pointer-events: none;
   position: relative;
   transition: color 150ms, top 150ms, left 150ms, font-size 150ms;
-  top: calc(50% - 25% * 0.5);
+  top: 35%;
   width: fit-content;
 `
 
 export const LabelText = styled.span`
-  background: #f3f4f6;
+  background: ${(props) => props.theme.background};
   margin: 0;
   padding: 0 0.5rem;
   width: fit-content;
