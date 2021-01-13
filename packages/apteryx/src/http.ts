@@ -1,4 +1,4 @@
-import cors, { CorsOptions } from "cors"
+import cors from "cors"
 import express, { Application } from "express"
 import bodyParser from "body-parser"
 
@@ -11,10 +11,9 @@ export default class HTTPServer {
   readonly app: Application = express()
   private readonly port: number
 
-  constructor(port: number, middleware?: MiddlewareTypedef[], corsOptions?: CorsOptions | undefined) {
+  constructor(port: number, middleware?: MiddlewareTypedef[]) {
     this.port = port
-    console.log(`Using CORS options ${JSON.stringify(corsOptions)}`)
-    this.app.use(cors(corsOptions))
+    this.app.use(cors())
     this.app.use(bodyParser.json())
 
     if (middleware) this.loadMiddleware(middleware)

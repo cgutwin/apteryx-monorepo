@@ -1,6 +1,6 @@
 import { graphqlHTTP } from "express-graphql"
 import { GraphiQLOptions } from "express-graphql/renderGraphiQL"
-import { execute, schema } from "./application"
+import schema from "./schema"
 
 export default class GraphQLServer {
   private readonly graphiqlConfig: boolean | GraphiQLOptions
@@ -13,7 +13,6 @@ export default class GraphQLServer {
   public loadServer() {
     return graphqlHTTP({
       schema,
-      customExecuteFn: execute,
       graphiql: this.graphiqlConfig
     })
   }

@@ -10,10 +10,7 @@ const server = new HTTPServer(
       path: "/",
       middleware: graphQlServer
     }
-  ],
-  {
-    origin: process.env.CORS_ORIGIN
-  }
+  ]
 )
 
 export { server }
